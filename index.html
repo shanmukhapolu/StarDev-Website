@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VERTCON</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">        
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<style>
+        
+  
+  footer {
+    text-align:center;
+    padding: 10px;
+    margin-bottom:-10px;
+    font-family: 'Montserrat', sans-serif;
+    margin-left:-20px;
+    margin-right:-20px;
+    border-top:solid 1px white;
+    background-color:rgb(128, 255, 0);
+    color:white;
+}
+  
+  .heading{
+      background-color:rgb(128, 255, 0);
+      background-attachment: fixed;
+      margin-top:-10px;
+      margin-left:-20px;
+      margin-right:-20px;
+      text-shadow:0px 0px 50px white;
+      height:67vh;
+      font-family: 'Red Hat Display', sans-serif;
+      letter-spacing:8px;
+      color:white;
+      text-align:center;
+      font-size:50px;
+      padding-top:200px;
+  }
+  
+  body {
+  padding: 0px 10px;
+  background:rgb(255, 255, 255);
+  overflow-x: hidden;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgb(189, 189, 189);
+}
+
+.page {
+    font-family:'Montserrat';
+    padding:10px;
+}
+
+a {
+    text-decoration:none;
+    color:rgb(128, 255, 0);
+}
+
+#home-text {
+    line-height: 1.6;
+}
+
+
+    </style>
+    </head>
+    
+    <body>
+    <div class="heading">
+    <h1>VERTCON</h1>
+      
+    </div>
+        
+        <main>
+        <!-- Home Page -->
+        <div class="page" id="home">
+            <h1 class="title" >Home</h1>
+           <p id="home-text">Converters is a tool for converting measurements. In VERTCON, you can convert Weight, Temperature, and Length. Click a converter below and start converting!</p>
+           <a href="javascript:page('weight');" id="weightLink">Convert Weight</a>
+           <br>
+           <br>
+           <a href="javascript:page('temperature');" id="temperatureLink">Convert Temperature</a>
+           <br>
+           <br>
+           <a href="javascript:page('distance');" id="distanceLink">Convert Distance</a>
+            </div>
+            
+        <!-- Weight Converter -->
+        <div class="page" id="weight">
+            <h1 class="title">Weight Converter</h1>
+            <a href="javascript:page('home');" id="homeLink">Pounds & Ounces</a>
+            <br>
+            <br>
+            <a href="javascript:page('home');" id="homeLink">Kilograms & Grams</a>
+            <br>
+            <br>
+            <a href="javascript:page('home');" id="homeLink">Kilograms & Pounds</a>
+            <br><br><a href="javascript:page('home');" id="homeLink">Back</a>
+        </div>
+        
+        <!-- Temperature Converter -->
+        <div class="page" id="temperature">
+            <h1 class="title">Temperature Converter</h1>
+            
+            <div>
+  <p>Type a value in any of the fields to convert between temperatures.</p>
+  <div>
+    <label>Fahrenheit</label>
+    <input id="inputFahrenheit" type="number" min="-459.66999999999996" placeholder="Fahrenheit" oninput="temperatureConverter(this.id,this.value)" onchange="temperatureConverter(this.id,this.value)">
+  </div>
+  <br>
+  <div>
+    <label>Celsius</label>
+    <input id="inputCelsius" type="number" min="-273.15" placeholder="Celsius" oninput="temperatureConverter(this.id,this.value)" onchange="temperatureConverter(this.id,this.value)">
+  </div>
+  <br>
+  <div>
+    <label>Kelvin</label>
+    <input id="inputKelvin" type="number" min="0" placeholder="Kelvin" oninput="temperatureConverter(this.id,this.value)" onchange="temperatureConverter(this.id,this.value)">
+  </div>
+</div>
+            <br>
+            <br>
+            <a href="javascript:page('home');" id="homeLink">Back</a>
+        </div>
+        
+        <!-- Distance Converter -->
+        <div class="page" id="distance">
+            <h1 class="title">Distance Converter</h1>
+            <a href="javascript:page('home');" id="homeLink">Back</a>
+        </div>
+        
+        </main>
+        
+        <footer id="foot">
+        <p><strong>&copy; 2021 VERTCON<br>___________________________</strong></p>
+        <p><strong>All Rights Reserved</strong></p>
+    </footer>
+</body>
+
+    <script>
+    var pages = document.getElementsByClassName("page");
+    var pageLinks = document.getElementsByTagName("a");
+        var page = function(thepage){
+            for (var i = 0; i < pages.length;i++){
+                pages[i].style.display = "none";
+            }
+            for (var j = 0; j < pageLinks.length;j++){
+                pageLinks[j].classList.remove("current");
+            }
+            document.getElementById(thepage).style.display = "block";
+            document.getElementById(thepage+"Link").classList.add("current");
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+            
+        };
+        page("home");
+    </script>
+    <script>
+function temperatureConverter(source,valNum) {
+  valNum = parseFloat(valNum);
+  var inputFahrenheit = document.getElementById("inputFahrenheit");
+  var inputCelsius = document.getElementById("inputCelsius");
+  var inputKelvin = document.getElementById("inputKelvin");
+  if (source=="inputFahrenheit") {
+    inputCelsius.value=((valNum-32)/1.8).toFixed(2);
+    inputKelvin.value=(((valNum-32)/1.8)+273.15).toFixed(2);
+  }
+  if (source=="inputCelsius") {
+    inputFahrenheit.value=((valNum*1.8)+32).toFixed(2);
+    inputKelvin.value=((valNum)+273.15).toFixed(2);
+  }
+  if (source=="inputKelvin") {
+    inputFahrenheit.value=(((valNum-273.15)*1.8)+32).toFixed(2);
+    inputCelsius.value=((valNum)-273.15).toFixed(2);
+  }
+}
+</script>
+</html>
