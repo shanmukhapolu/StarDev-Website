@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StarDev</title>
+    <title>About StarDev</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <style>
-  @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
 :root {
   --primary-color: #f60f20;
@@ -105,7 +105,6 @@ section.home {
   box-shadow:-1px 1px 5px grey;
 }
 
-
 /* NAVIGATION */
 .navigation {
   position: fixed;
@@ -113,7 +112,7 @@ section.home {
   left: 100%;
   width: 100%;
   height: 100%;
-  background-color:rgba(255,255,255,0.9);
+  background-color: #fff;
   z-index: 15;
   display: flex;
   justify-content: center;
@@ -405,6 +404,15 @@ section.home {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 }
+
+footer {
+  background-color:var(--primary-color);
+  padding-left:500px;
+  padding-right:500px;
+  color:white;
+  margin-bottom:-10px;
+  height:100px;
+}
   </style>
   <body>
     <header>
@@ -444,24 +452,44 @@ menu
       </div>
     </header>
 
-    <section class="home">
-      <img src="images/home-img.jpg" class="home-img" alt="" />
-      <div class="home-content">
-        <h1>
-          We help to achieve <br />
-          your goals.
-        </h1>
+    <section>
+      <div class="title">
+        <h1>Learn More About Us</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo itaque
-          nam saepe vero voluptatem vel fuga a eaque earum alias ipsam
-          aspernatur culpa maxime laboriosam, impedit quae officiis consectetur
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus
+          iusto molestias accusamus rem nobis est, et laborum harum doloremque
+          nemo non, minima quos totam labore maxime iste alias ut esse? Repellat
+          eaque reiciendis laboriosam corporis fuga vero ratione veritatis
+          numquam, libero magni voluptatum omnis molestiae officiis
+          exercitationem qui quidem nam.
         </p>
-        <a href="contact.html" class="btn">Get Started</a>
+      </div>
+      <div class="services">
+        <div class="service">
+          <h2>Design</h2>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis
+          nemo sapiente in quidem sed dolores cumque! Ut, est aliquid!
+        </div>
+        <div class="service">
+          <h2>Development</h2>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis
+          nemo sapiente in quidem sed dolores cumque! Ut, est aliquid!
+        </div>
+        <div class="service">
+          <h2>App Development</h2>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis
+          nemo sapiente in quidem sed dolores cumque! Ut, est aliquid!
+        </div>
       </div>
     </section>
+    <footer>
+        <p>&copy; 2021 StarDev</p>
+        <p>All Rights Reserved</p>
+    </footer>
+
 
     <script>
-    const toggle = document.querySelector('.toggle')
+      const toggle = document.querySelector('.toggle')
 const navigation = document.querySelector('.navigation')
 
 toggle.addEventListener('click', () => {
